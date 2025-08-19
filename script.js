@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function () {
 const form = document.getElementById("contact-form");
 if (form) {
   if (window.location.hostname.includes("netlify.app") || window.location.hostname.includes("rapttech.com")) {
-    form.action = "/contact";
+    form.action = "https://rapttech.onrender.com/contact";
   } else {
     form.action = "/contact"; // Local Flask endpoint
   }
