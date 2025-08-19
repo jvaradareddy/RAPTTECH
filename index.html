@@ -77,10 +77,16 @@
   <section id="contact" class="contact">
     <div class="container">
       <h2>Contact Us</h2>
-      <form id="contact-form" method="POST" action="/contact">
+     <!--  <form id="contact-form" method="POST" action="/contact">
         <input type="text" name="name" placeholder="Your Name" required>
         <input type="email" name="email" placeholder="Your Email" required>
         <textarea name="message" placeholder="Your Message" required></textarea>
+        <button type="submit">Send</button>
+      </form> -->
+      <form id="contact-form" name="contact" method="POST" data-netlify="true">
+        <input type="text" name="name" required>
+        <input type="email" name="email" required>
+        <textarea name="message" required></textarea>
         <button type="submit">Send</button>
       </form>
       <p>Email: <a href="mailto:var.reddy@gmail.com">var.reddy@gmail.com</a></p>
