@@ -36,13 +36,11 @@ def add_header(response):
 #---------------------------------
 
 #@app.route("/")
-@app.route("/", methods=["GET"])
+@app.route("/")
 def home():
     # Serve index.html from root folder
     # return send_from_directory('.', 'index.html')
-    # return render_template("/index.html")
-    success = request.args.get("success")
-    return render_template("index.html", success=success)
+    return render_template("/index.html")
 
 @app.route("/contact", methods=["POST"])
 def contact():
