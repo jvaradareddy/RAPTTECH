@@ -78,11 +78,11 @@ document.addEventListener('DOMContentLoaded', function () {
 // -----------------------
 // Update form action based on environment
 // -----------------------
-const form = document.getElementById("contact-form");
+/* const form = document.getElementById("contact-form");
 if (form) {
   if (window.location.hostname.includes("netlify.app") || window.location.hostname.includes("rapttech.com")) {
     form.action = "https://rapttech.netlify.app/contact";
   } else {
     form.action = "/contact"; // Local Flask endpoint
   }
-}
+} */
