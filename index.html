@@ -11,34 +11,37 @@
   <!-- Success message box -->
   <div id="alert-box" style="display:none; padding:10px; margin:10px; border-radius:5px; background-color:#d4edda; color:#155724; position:relative; z-index:1000;"></div>
 
- <!-- Header -->
-<header class="header">
-<div class="container header-flex">
-    <div class="logo-container">
-    <img src="/logo.svg" alt="RAPTTECH Logo" class="logo-img" />
-    <div class="company-name">
-        <span class="rapt">RAPT</span><span class="tech">TECH</span>
+  <!-- Header -->
+  <header class="header">
+    <div class="container header-flex">
+      <div class="logo-container">
+        <img src="/logo.svg" alt="RAPTTECH Logo" class="logo-img" />
+        <div class="company-name">
+          <span class="rapt">RAPT</span><span class="tech">TECH</span>
         </div>
+      </div>
+
+      <!-- Hamburger toggle -->
+      <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+
+      <!-- Nav links -->
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#solutions">Solutions</a>
+        <a href="#contact">Contact</a>
+      </nav>
     </div>
-    <nav>
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
-    <a href="#contact">Contact</a>
-    </nav>
-</div>
-</header>
+  </header>
 
   <!-- Hero -->
   <section class="hero">
-
     <div class="container">
       <h2>Innovating the Future with Technology</h2>
       <p>We deliver cutting-edge tech solutions to empower your business.</p>
       <a href="#contact" class="btn">Get in Touch</a>
     </div>
-    
   </section>
-
 
   <!-- About -->
   <section id="about" class="about">
@@ -73,21 +76,40 @@
     </div>
   </section>
 
+  <!-- Solutions -->
+  <section id="solutions" class="solutions">
+    <div class="container">
+      <h2>Our Solutions</h2>
+      <div class="solution-grid">
+        <div class="solution">
+          <h3>RaMP (Rack and Material Pallet)</h3>
+          <p>
+            A powerful Warehouse Management System designed to optimize inventory
+            tracking Aisle, Rack & Bin management, and warehouse efficiency.
+          </p>
+        </div>
+        <div class="solution">
+          <h3>RemindMe App</h3>
+          <p>
+            A smart reminder mobile app to manage your tasks and schedules. 
+            Download the APK and install on your mobile to start using RemindMe today.
+          </p>
+          <a href="/remindme.apk" class="btn" download>Download APK</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Contact -->
   <section id="contact" class="contact">
     <div class="container">
       <h2>Contact Us</h2>
   
       <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/?success=true">
-        <!-- Hidden form-name input (required by Netlify) -->
         <input type="hidden" name="form-name" value="contact">
-  
-        <!-- Honeypot (spam protection, hidden from real users) -->
         <p style="display:none">
           <label>Don’t fill this out: <input name="bot-field"></label>
         </p>
-  
-        <!-- Actual fields -->
         <input type="text" name="name" placeholder="Your Name" required>
         <input type="email" name="email" placeholder="Your Email" required>
         <textarea name="message" placeholder="Your Message" required></textarea>
@@ -98,7 +120,6 @@
       <p>Phone: +91 99021 29833</p>
     </div>
   </section>
-  
 
   <!-- Footer -->
   <footer class="footer">
@@ -106,6 +127,7 @@
       <p>© 2025 RAPTTECH. All rights reserved.</p>
     </div>
   </footer>
+
   <script src="/script.js"></script>
 </body>
 </html>
