@@ -52,6 +52,10 @@ body {
   100% { opacity: 1; transform: translateY(0); }
 }
 
+html {
+  scroll-padding-top: 40px; /* adjust based on header height */
+}
+
 /* Header */
 .header {
   position: fixed;
@@ -239,7 +243,12 @@ button:hover { background: #0047b3; }
   .menu-toggle { display: block; }
 }
 
-/* Very small screens */
+/* Very small screens 
 @media (max-width: 480px) {
   .company-name { display: none; }
+}*/
+@media (max-width: 480px) {
+  .company-name {
+    font-size: 0.9rem; 
+  }
 }

@@ -23,22 +23,17 @@ function adjustHeroPadding() {
   }
 }
 
-// Run on page load + resize
-document.addEventListener('DOMContentLoaded', adjustHeroPadding);
+// Run on load + resize
+window.addEventListener('load', adjustHeroPadding);
 window.addEventListener('resize', adjustHeroPadding);
 
 // -----------------------
-// Show alert if ?success=true|false
+// Main DOMContentLoaded
 // -----------------------
 document.addEventListener("DOMContentLoaded", () => {
-  console.log("FULL URL:", window.location.href);
-  console.log("SEARCH PART:", window.location.search);
-
+  // --- Alert Box ---
   const params = new URLSearchParams(window.location.search);
-  console.log("Query success param =", params.get("success"));
-
   const alertBox = document.getElementById("alert-box");
-  console.log("AlertBox element =", alertBox);
 
   function showAlert(message, bgColor, textColor) {
     if (!alertBox) return;
@@ -60,38 +55,40 @@ document.addEventListener("DOMContentLoaded", () => {
     showAlert("❌ Failed to send your message. Please try again.", "#f8d7da", "#721c24");
   }
 
-  // ✅ Remove ?success=... from URL AFTER showing alert
+  // Remove ?success=... from URL
   if (params.has("success") && window.history.replaceState) {
     const newUrl = window.location.origin + window.location.pathname;
     window.history.replaceState({}, document.title, newUrl);
   }
-});
 
-
-document.addEventListener("DOMContentLoaded", () => {
+  // --- Mobile Menu Toggle ---
   const menuToggle = document.querySelector('.menu-toggle');
   const navLinks = document.querySelector('.nav-links');
-  menuToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-  });
-});
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
 
-// -----------------------
-// Set initial button state
-// -----------------------
-document.addEventListener('DOMContentLoaded', function () {
+    // Close dropdown after link click
+    const links = navLinks.querySelectorAll('a');
+    links.forEach(link =>
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+      })
+    );
+  }
+
+  // --- Set initial button style ---
   const btn = document.querySelector('.btn');
   if (btn) btn.classList.add('btn-light');
-});
 
-// -----------------------
-// Update form action based on environment
-// -----------------------
-/* const form = document.getElementById("contact-form");
-if (form) {
-  if (window.location.hostname.includes("netlify.app") || window.location.hostname.includes("rapttech.com")) {
-    form.action = "https://rapttech.netlify.app/contact";
-  } else {
-    form.action = "/contact"; // Local Flask endpoint
+  // --- Update form action based on environment (optional) ---
+  const form = document.getElementById("contact-form");
+  if (form) {
+    if (window.location.hostname.includes("netlify.app") || window.location.hostname.includes("rapttech.com")) {
+      form.action = "https://rapttech.netlify.app/contact";
+    } else {
+      form.action = "/contact"; // Local Flask endpoint
+    }
   }
-} */
+});
